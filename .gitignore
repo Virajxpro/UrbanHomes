@@ -1,0 +1,23 @@
+# Node
+node_modules
+dist/
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Prisma
+/generated/prisma
+
+# Docker
+docker-compose.override.yml
+*.local
+
+# VS Code
+.vscode/
+
+# Misc
+.DS_Store

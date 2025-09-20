@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: urbanhomes-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ../backend/.env
+    volumes:
+      - ../backend:/app
+    depends_on:
+      - db
+    networks:
+      - urbanhomes-network
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: urbanhomes-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../frontend/.env
+    volumes:
+      - ../frontend:/app
+    networks:
+      - urbanhomes-network
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: urbanhomes-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: urbanhomes
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - urbanhomes-network
+
+volumes:
+  pgdata:
+
+networks:
+  urbanhomes-network:
