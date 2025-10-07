@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn app.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,20 +14,23 @@
   "type": "commonjs",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
-    "@prisma/client": "^6.16.2",
+    "@prisma/client": "^6.16.3",
     "@sendgrid/mail": "^8.1.6",
     "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.7.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "google-auth-library": "^10.4.0",
     "ioredis": "^5.7.0",
     "jsonwebtoken": "^9.0.2",
     "langchain": "^0.3.34",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "razorpay": "^2.9.6",
     "redis": "^5.8.2",
     "ws": "^8.18.3",
@@ -36,13 +41,16 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.7.0",
+    "@types/passport": "^1.0.17",
+    "@types/passport-google-oauth20": "^2.0.16",
     "@types/ws": "^8.18.1",
     "eslint": "^9.36.0",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "prisma": "^6.16.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
   }
 }
